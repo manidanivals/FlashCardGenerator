@@ -1,12 +1,11 @@
-import autogen
-from autogen import register_function, AssistantAgent, GroupChat, GroupChatManager, UserProxyAgent
 
+from autogen import register_function, AssistantAgent, GroupChat, GroupChatManager, UserProxyAgent
 from web.flashcardTool import qna_to_pdf
 
 config_list = [
     {
         'model': 'gpt-4o',
-        'api_key': 'GET YOUR OWN!'
+        'api_key': 'GET YOUR OWN!!!'
     }
 ]
 llm_config = {
@@ -14,6 +13,7 @@ llm_config = {
     "config_list": config_list,
     "temperature": 0
 }
+
 
 flashcard_maker_agent = AssistantAgent(
     name="flashcard_maker",
@@ -96,7 +96,8 @@ In 60 BC, Caesar, Crassus, and Pompey formed the First Triumvirate, an informal 
 After assuming control of government, Caesar began a programme of social and governmental reform, including the creation of the Julian calendar. He gave citizenship to many residents of far regions of the Roman Republic. He initiated land reforms to support his veterans and initiated an enormous building programme. In early 44 BC, he was proclaimed "dictator for life" (dictator perpetuo). Fearful of his power and domination of the state, a group of senators led by Brutus and Cassius assassinated Caesar on the Ides of March (15 March) 44 BC. A new series of civil wars broke out and the constitutional government of the Republic was never fully restored. Caesar's great-nephew and adopted heir Octavian, later known as Augustus, rose to sole power after defeating his opponents in the last civil war of the Roman Republic. Octavian set about solidifying his power, and the era of the Roman Empire began.
 
 """
-
+print("Present topic for flashcard generation")
+task_prompt= input()
 # Step 5: Start the Conversation
 chat_result = executor_agent.initiate_chat(
     group_chat_manager,

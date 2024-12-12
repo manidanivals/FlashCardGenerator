@@ -1,9 +1,5 @@
 import json
-
 from fpdf import FPDF
-from typing import List, Dict
-
-from packaging.markers import Operator
 from pydantic import BaseModel, Field
 import random
 
