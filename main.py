@@ -1,4 +1,4 @@
-import autogens
+import autogen
 
 config_list = [
     {
