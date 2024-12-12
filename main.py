@@ -1,4 +1,7 @@
 import autogen
+from autogen import register_function
+
+from web.flashcardTool import qna_to_pdf
 
 config_list = [
     {
@@ -71,7 +74,14 @@ flashcard_maker = autogen.UserProxyAgent(
 
     ,
 )
-
+# Register the calculator function to the two agents.
+register_function(
+    qna_to_pdf,
+    caller=flashcard_writer,  # The assistant agent can suggest calls to the calculator.
+    executor=flashcard_maker,  # The user proxy agent can execute the calculator calls.
+    name="flash card maker",  # By default, the function name is used as the tool name.
+    description="A simple function that takes in a list of JSON question and and answer pairs and puts them into a single pdf file",  # A description of the tool.
+)
 task = """
 Friedrich Nietzsche (1844–1900) was a German philosopher, cultural critic, poet, and philologist whose ideas profoundly influenced Western thought. 
 Born in Röcken, Prussia, Nietzsche was the son of a Lutheran pastor and was raised in a deeply religious environment, though he later became one of the most vocal critics of Christianity.

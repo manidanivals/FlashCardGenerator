@@ -1,6 +1,6 @@
 from fpdf import FPDF
 from typing import List, Dict
-from autogen.tools import register_tool
+from autogen import register_function
 import random
 
 def generate_pastel_color():
@@ -14,7 +14,7 @@ class CustomPDF(FPDF):
     def set_background_color(self, rgb):
         self.set_fill_color(*rgb)
         self.rect(0, 0, self.w, self.h, "F")
-@register_tool
+
 def qna_to_pdf(json_array: List[Dict], output_file: str = "qna_output.pdf") -> str:
     pdf = CustomPDF()
     pdf.set_auto_page_break(auto=True, margin=15)
