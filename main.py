@@ -3,7 +3,7 @@ import autogens
 config_list = [
     {
         'model': 'gpt-4o',
-        'api_key': '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'
+        'api_key': ''
     }
 ]
 
